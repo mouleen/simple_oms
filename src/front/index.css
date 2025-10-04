@@ -1,0 +1,133 @@
+body{
+    background: white;
+}
+
+.container-style{
+    font-family: Arial, sans-serif;
+}
+
+/* Botones principales azules */
+.custom-bg-blue{
+    width: 100%;
+    padding: 12px;
+    background-color: #00aeef;
+    color: #004466;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+.custom-bg-blue:hover{
+    background-color: #33bef2;
+}
+
+.custom-fg-blue{
+    color: #00aeef !important;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Inputs */
+.input-group-text{
+    height: 40px;
+    background-color: #cceffc;
+    border-color: #33bef2;
+    color: #004466;
+}
+
+/* footer sticky */
+html, body {
+    height: 100%;
+    margin: 0;
+}
+footer {
+    flex-shrink: 0; /* No se encoge */
+    color: #004466;
+}
+
+/* Botón estilo cápsula azul */
+.btn-custom {
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: linear-gradient(135deg, #00aeef 0%, #33bef2 100%);
+    color: #004466 !important;
+    border: none;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    box-shadow: 0 4px 12px rgba(0, 174, 239, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    min-width: 120px;
+}
+
+.btn-custom:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 174, 239, 0.4);
+    background: linear-gradient(135deg, #33bef2 0%, #66cef6 100%);
+}
+
+
+@keyframes starPulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.5) rotate(10deg); }
+    100% { transform: scale(1.2); }
+}
+
+.star-rating label::after {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    background: radial-gradient(circle, rgba(0,174,239,0.2) 0%, transparent 70%);
+    border-radius: 50%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.star-rating label:hover::after {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .star-rating label {
+        font-size: 28px;
+    }
+}
+
+/* Botones del navbar */
+.btn-sm {
+    background-color: #004466;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.btn-dos {
+    transition: all 0.3s ease;
+    font-weight: 500;
+    background: #00aeef;
+    color: white !important;
+    border: none;
+    padding: 0.6rem 1.8rem;
+    border-radius: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+}
+
+.btn-dos:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 18px rgba(0, 174, 239, 0.4);
+    background: #33bef2;
+}

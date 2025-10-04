@@ -1,0 +1,286 @@
+type: collection.insomnia.rest/5.0
+name: My first collection
+meta:
+  id: wrk_35854beeb51a48cd9598fd662a7682af
+  created: 1759509298729
+  modified: 1759509298729
+  description: ""
+collection:
+  - url: "{{ _.url_api }}/users"
+    name: UsersList
+    meta:
+      id: req_e51c7019c05e4732883a75b318279a5b
+      created: 1759509298817
+      modified: 1759513776936
+      isPrivate: false
+      description: ""
+      sortKey: -1759509298817
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/users"
+    name: UserCraete
+    meta:
+      id: req_c391d99dd9af467fa801bc00b31ee6d6
+      created: 1759509428236
+      modified: 1759511110691
+      isPrivate: false
+      description: ""
+      sortKey: -1757231431412.5
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"name":"Carlin",
+        	"email":"Carlin@calvo.es"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/users/3"
+    name: UserGet
+    meta:
+      id: req_1176eee4e92c4b9c9bf4962f2833333d
+      created: 1759509549442
+      modified: 1759532275637
+      isPrivate: false
+      description: ""
+      sortKey: -1758370365114.75
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/users/admin/1"
+    name: UserDelete
+    meta:
+      id: req_d2d7e3c6436649da9ebc31e293be9b20
+      created: 1759509616183
+      modified: 1759511093045
+      isPrivate: false
+      description: ""
+      sortKey: -1757800898263.625
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/users/2/orders"
+    name: UserGetWithOrders
+    meta:
+      id: req_743e6c5bc5f34c1caa81713fe189054d
+      created: 1759510031139
+      modified: 1759511077492
+      isPrivate: false
+      description: ""
+      sortKey: -1758085631689.1875
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/orders"
+    name: OrderCraete
+    meta:
+      id: req_b13ec8e114054476bee3b9b221987295
+      created: 1759510264035
+      modified: 1759511317001
+      isPrivate: false
+      description: ""
+      sortKey: -1756092497710.25
+    method: POST
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"user_id":2,
+        	"product_name":"Producto Carlin 2",
+        	"amount": 59
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/orders"
+    name: OrdersList
+    meta:
+      id: req_7a68cadb1b3545b491c47ecc867e2e3f
+      created: 1759510523881
+      modified: 1759511148093
+      isPrivate: false
+      description: ""
+      sortKey: -1756092497610.25
+    method: GET
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/api/order/admin/1"
+    name: OrderDelete
+    meta:
+      id: req_f5f861a0c4d84f5693bb24a5a986bfdf
+      created: 1759510581749
+      modified: 1759510821546
+      isPrivate: false
+      description: ""
+      sortKey: -1756092497510.25
+    method: DELETE
+    headers:
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/orders"
+    name: OrderUpdate
+    meta:
+      id: req_730b328b2c08437abb6429cd89916cd7
+      created: 1759511500899
+      modified: 1759516574055
+      isPrivate: false
+      description: ""
+      sortKey: -1756092497410.25
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id":2,
+        	"user_id":2,
+        	"product_name":"Producto Carlin 2",
+        	"amount": 59
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+  - url: "{{ _.url_api }}/users"
+    name: UserUpdate
+    meta:
+      id: req_1c160d77c02d44c1b1aa7eb7039e1baf
+      created: 1759512451544
+      modified: 1759536672857
+      isPrivate: false
+      description: ""
+      sortKey: -1756661964561.375
+    method: PATCH
+    body:
+      mimeType: application/json
+      text: |-
+        {
+        	"id":5,
+        	"name":"Carlina",
+        	"email":"Carlin@calvo.es"
+        }
+    headers:
+      - name: Content-Type
+        value: application/json
+      - name: User-Agent
+        value: insomnia/11.6.1
+    settings:
+      renderRequestBody: true
+      encodeUrl: true
+      followRedirects: global
+      cookies:
+        send: true
+        store: true
+      rebuildPath: true
+cookieJar:
+  name: Default Jar
+  meta:
+    id: jar_a26f3320867fa7da15353791f8476f62336de654
+    created: 1759509298780
+    modified: 1759536685555
+  cookies:
+    - key: .Tunnels.Relay.WebForwarding.Cookies
+      value: CfDJ8Cs4yarcs6pKkdu0hlKHsZuMpp3TuNa9CFqaIubwA8dhV5xYtFQX5qxcVaDSrPRlIqUleO7zLjYH8dT9QNWyHg1tXL7ieqDgENu8J2u1cWUo0Gytkfy0AA0jSgcBnGcJUBroC_gYbYI_Qx8pf5GiNMr89xxl9VHn-UwW_KbZJw8Dknp4CaaI_UXRZ4LQCMXa8nqEUQMJ7--MUVLKnXILPMeuVlIhzsweDthFj7Wqd30mYm0cqk4VpUICLoF5qYIZ3rJoGWANZvW6iTwzGpwQ3OyLV99v4m263pMJxO6Bxyhartcb748i8HALBRd4O-DDpZbi4igmhuYBFCDvU3_21zoKGjWD6u7NsMp8ftwtpdZ9tgouBLeN3Hn8tdwBXF4sJI-5zWpx-6SURtgm79IYZhJbGLMgoaqEb6Hh6v-R9fq8fxGySdDmrg0Zg4g6WNO-mCGoUICCSaF7FrOyQ8hoPS0BkqYPeUH7WPesA2BF5WM7gsGkaN7Uep6duZR00BOvxu4FYOXo_qtwa84FnZsODcuaUWrJOCiLLYhVGtls0eoywEcm4NDH7nGlqIAYgJ0W3kORCDzaM4x0J0uZAyWijYgjtuXI28uPXTqVhG-3r9m9wigzHWZXEtwGWzVB9AM4vSDaKslLvGsSUDxomGGXYi4zT14h8g9cDk0-J7fzSc-ZpkfjqaRdNUL5Ure5j6uxh5Ex-vIEaf-hgmOur-a6Z58Sz6LAZ-M82UdoyyhpiyNvAC50saoNRBaCIEXtz-weUudcfEcVTB4OlPgc_18bR4dxQD015UbpZKKnBaTW1dcqlyNJe9IYaj1CNvfXoEhLEp88eHnUjED5QDM-xwrSP9FkfU7g7P3DPXa04Ua8Y1O172JZaJs-Sk-diPn6PPY7dKvSTH3Xb_4rRE_njhivPfMu468BUDbnW4_fd3-4pgJbTGJ1ldC0vkQF-kS2X_2tjZWYqJetX9FYBHGDCmYnm9YoAotFGeuK8QyqzAxO71QNiPzq24ctGMULA9Ra7-_IKw
+      domain: ideal-giggle-7vw9q95pqw9r2r444-3001.app.github.dev
+      path: /
+      secure: true
+      extensions:
+        - Partitioned
+      hostOnly: true
+      creation: 2025-10-03T16:36:06.351Z
+      lastAccessed: 2025-10-04T00:11:25.555Z
+      sameSite: none
+      id: 708bd571-cde5-4535-b1be-9038c5803dd1
+environments:
+  name: Base Environment
+  meta:
+    id: env_a26f3320867fa7da15353791f8476f62336de654
+    created: 1759509298770
+    modified: 1759509334243
+    isPrivate: false
+  data:
+    url_api: https://ideal-giggle-7vw9q95pqw9r2r444-3001.app.github.dev
