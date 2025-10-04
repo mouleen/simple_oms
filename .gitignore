@@ -1,0 +1,165 @@
+# ignore all files starting with .
+.*
+
+# track this file .gitignore (i.e. do NOT ignore it)
+!.gitignore
+!.github
+php_errorlog
+.log
+
+# do not ignore gitpod and render files
+!.gitpod.Dockerfile
+!.welcome
+!.devcontainer
+!.devcontainer/*
+!Dockerfile.render
+!.gitpod.yml
+!render.yml
+!.render-buildpacks.json
+
+# track webpack configs (i.e. do NOT ignore it)
+!composer.json
+!webpack.config.js
+!package.json
+!webpack.production.js
+!webpack.development.js
+
+# track readme.md in the root (i.e. do NOT ignore it)
+!README.md
+
+# ignore OS generated files
+ehthumbs.db
+Thumbs.db
+
+# ignore Editor files
+*.sublime-project
+*.sublime-workspace
+*.komodoproject
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite
+
+# ignore compiled files
+*.com
+*.class
+*.dll
+*.exe
+*.o
+*.so
+
+# ignore packaged files
+*.7z
+*.dmg
+*.gz
+*.iso
+*.jar
+*.rar
+*.tar
+*.zip
+
+# ignore node/grunt dependency directories
+node_modules/
+
+# webpack output
+dist/*
+!public/
+!public/*
+
+# ignore the dist directory were our bundle files are going to be
+!.gitkeep
+!.htaccess
+!.eslintrc
+!.env.example
+.now
+
+# backend stuff
+.venv
+database.database
+database.db
+diagram.png
+__pycache__/
+
+# =========================
+# Python / Flask
+# =========================
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*/__pycache__/
+*/*.py[cod]
+*/*$py.class
+
+# Virtual environments
+venv/
+.env/
+.venv/
+ENV/
+env/
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Flask / FastAPI / Uvicorn logs
+*.log
+
+# Local settings
+*.local
+database.py
+db.sqlite3
+
+# =========================
+# IDEs
+# =========================
+.idea/
+.vscode/
+
+# =========================
+# OS files
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Node / React
+# =========================
+node_modules/
+*/node_modules/
+build/
+dist/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# =========================
+# Misc
+# =========================
+.oldgit
+Makefile
