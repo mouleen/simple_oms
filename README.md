@@ -111,3 +111,21 @@ cd api && pipenv run start
 En ocasiones podria dar problemas los dominios permitidos que tiene configurado el vite.config
 En caso que fuera necesario configurar los dominios de front y API en la clave AllowedHosts
 
+```
+---
+
+🧩 Funcionalidades 🧩
+
+- Gestion de Usuarios y Ordenes
+
+- Manejo de loading y errores en llamadas a la API.
+
+- Rutas con React Router
+
+- Búsqueda de usuarios o pedidos (motor de búsqueda por nombre, email o producto).
+
+- Uso de data dummy con librerías como faker o mockaroo para generar datos de prueba.
+
+- Exportar a JSON: botón para exportar todas las ordenes en un archivo .json.
+
+- Carga masiva desde JSON: botón para cargar un .json y crear múltiples pedidos en batch.
