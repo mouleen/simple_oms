@@ -16,7 +16,11 @@ const OrderIndex = () => {
   const [searchTerm, setSearchTerm] = useState("");
 
   const [modalType, setModalType] = useState(null);
-  const [modalData, setModalData] = useState({ user_id: "", product_name: "", amount: 0 });
+  const [modalData, setModalData] = useState({
+    user_id: "",
+    product_name: "",
+    amount: 0,
+  });
   const [modalError, setModalError] = useState(null);
 
   const [importing, setImporting] = useState(false);
@@ -49,17 +53,21 @@ const OrderIndex = () => {
     }
   };
 
-  const getUserName = (id) => users.find((u) => u.id === id)?.name || `User ${id}`;
+  const getUserName = (id) =>
+    users.find((u) => u.id === id)?.name || `User ${id}`;
 
   const handleCreateOrEdit = async () => {
     setModalError(null);
-    if (!modalData.user_id || !modalData.product_name || !modalData.amount) {
+    if (!modalData.user_id || !modalData.product_name || !modalData.amount)
       return setModalError("Complete todos los campos.");
-    }
 
     try {
       let res;
-      const payload = { ...modalData, user_id: Number(modalData.user_id), amount: Number(modalData.amount) };
+      const payload = {
+        ...modalData,
+        user_id: Number(modalData.user_id),
+        amount: Number(modalData.amount),
+      };
 
       if (modalType === "create") res = await createOrder(payload);
       else if (modalType === "edit") res = await updateOrder(payload);
@@ -112,69 +120,120 @@ const OrderIndex = () => {
   };
 
   return (
-    <div className="container py-4">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2 style={{ color: "#004466" }}>Listado de Órdenes</h2>
-        <div className="d-flex">
-          <ImportButton setOrders={setOrders} users={users} loadOrders={loadOrders} />
-          <ExportButton orders={orders} />
-          <DummyOrdersButton users={users} createDummyOrders={createDummyOrders} loading={importing} />
-          <button
-            className="btn"
-            style={{ backgroundColor: "#66cef6", color: "#004466", border: "1px solid #33bef2" }}
-            onClick={() => {
-              setModalType("create");
-              setModalData({ user_id: "", product_name: "", amount: 0 });
+    <>
+      <div className="container py-4 mb-5">
+        <div
+          className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-3 bg-white sticky-top py-2"
+          style={{ zIndex: 1020, top: "0" }}
+        >
+          <h2 className="fw-bold mb-2 mb-sm-0">Listado de Órdenes</h2>
+          <div className="d-none d-sm-flex gap-2">
+            <ImportButton
+              setOrders={setOrders}
+              users={users}
+              loadOrders={loadOrders}
+            />
+            <ExportButton orders={orders} />
+            <DummyOrdersButton
+              users={users}
+              createDummyOrders={createDummyOrders}
+              loading={importing}
+            />
+            <button
+              className="btn btn-info text-dark"
+              onClick={() => {
+                setModalType("create");
+                setModalData({ user_id: "", product_name: "", amount: 0 });
+                setModalError(null);
+              }}
+            >
+              <i className="fa fa-plus me-2"></i> Crear Orden
+            </button>
+          </div>
+        </div>
+
+        <input
+          type="text"
+          className="form-control mb-3"
+          placeholder="Buscar por producto, usuario o ID..."
+          value={searchTerm}
+          onChange={(e) => setSearchTerm(e.target.value)}
+        />
+
+        {loadingOrders && <p>Cargando...</p>}
+        {error && <p className="text-danger">{error}</p>}
+
+        {!loadingOrders && !error && (
+          <OrderTable
+            orders={orders}
+            users={users}
+            searchTerm={searchTerm}
+            getUserName={getUserName}
+            onEdit={(o) => {
+              setModalType("edit");
+              setModalData(o);
               setModalError(null);
             }}
-          >
-            Crear Orden
-          </button>
-        </div>
+            onDelete={(o) => {
+              setModalType("delete");
+              setModalData(o);
+              setModalError(null);
+            }}
+          />
+        )}
+
+        <OrderModal
+          type={modalType}
+          show={!!modalType}
+          onClose={() => setModalType(null)}
+          onSubmit={modalType === "delete" ? handleDelete : handleCreateOrEdit}
+          data={modalData}
+          setData={setModalData}
+          users={users}
+          error={modalError}
+        />
       </div>
 
-      <input
-        type="text"
-        className="form-control mb-3"
-        placeholder="Buscar por producto, usuario o ID..."
-        value={searchTerm}
-        onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ backgroundColor: "#cceffc", borderColor: "#33bef2", color: "#004466" }}
-      />
-
-      {loadingOrders && <p>Cargando...</p>}
-      {error && <p className="text-danger">{error}</p>}
-
-      {!loadingOrders && !error && (
-        <OrderTable
-          orders={orders}
-          users={users}
-          searchTerm={searchTerm}
-          getUserName={getUserName}
-          onEdit={(o) => {
-            setModalType("edit");
-            setModalData(o);
-            setModalError(null);
+      <div
+        className="d-flex d-sm-none justify-content-around align-items-center bg-white border-top shadow-lg position-fixed bottom-0 start-0 end-0 py-2"
+        style={{
+          zIndex: 1050,
+          height: "64px",
+        }}
+      >
+        <button
+          className="btn btn-light d-flex flex-column align-items-center"
+          onClick={() => document.querySelector("#import-input")?.click()}
+        >
+          <i className="fa fa-upload fs-5 text-info"></i>
+          <small>Importar</small>
+        </button>
+        <button
+          className="btn btn-light d-flex flex-column align-items-center"
+          onClick={() => document.querySelector("#export-button")?.click()}
+        >
+          <i className="fa fa-download fs-5 text-info"></i>
+          <small>Exportar</small>
+        </button>
+        <button
+          className="btn btn-light d-flex flex-column align-items-center"
+          onClick={createDummyOrders}
+        >
+          <i className="fa fa-database fs-5 text-info"></i>
+          <small>Dummy</small>
+        </button>
+        <button
+          className="btn btn-light d-flex flex-column align-items-center"
+          onClick={() => {
+            setModalType("create");
+            setModalData({ user_id: "", product_name: "", amount: 0 });
           }}
-          onDelete={(o) => {
-            setModalType("delete");
-            setModalData(o);
-            setModalError(null);
-          }}
-        />
-      )}
-
-      <OrderModal
-        type={modalType}
-        show={!!modalType}
-        onClose={() => setModalType(null)}
-        onSubmit={modalType === "delete" ? handleDelete : handleCreateOrEdit}
-        data={modalData}
-        setData={setModalData}
-        users={users}
-        error={modalError}
-      />
-    </div>
+        >
+          <i className="fa fa-plus fs-5 text-info"></i>
+          <small>Crear</small>
+        </button>
+      </div>
+    </>
   );
 };
 

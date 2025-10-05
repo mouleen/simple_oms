@@ -46,24 +46,16 @@ const UserIndex = () => {
 
   return (
     <div className="container py-4">
-      <div className="d-flex justify-content-between align-items-center mb-3">
-        <h2 style={{ color: "#004466" }}>Listado de Usuarios</h2>
-        <button
-          className="btn"
-          style={{ backgroundColor: "#66cef6", color: "#004466", border: "1px solid #33bef2" }}
-          onClick={() => openModal("create")}
-        >
-          Crear Usuario
-        </button>
+      <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-3">
+        <h2 className="text-dark fw-bold mb-3 mb-sm-0">Listado de Usuarios</h2>
       </div>
 
       <input
         type="text"
-        className="form-control my-3"
+        className="form-control mb-3"
         placeholder="Buscar por nombre, email o ID..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        style={{ backgroundColor: "#cceffc", borderColor: "#33bef2", color: "#004466" }}
       />
 
       {loading && <p>Cargando usuarios...</p>}
@@ -73,46 +65,89 @@ const UserIndex = () => {
         <table className="table align-middle">
           <thead style={{ backgroundColor: "#00aeef", color: "#004466" }}>
             <tr>
-              <th style={{ textAlign: "left" }}>ID</th>
-              <th style={{ textAlign: "left" }}>Nombre</th>
-              <th style={{ textAlign: "left" }}>Email</th>
+              <th>ID</th>
+              <th>Nombre</th>
+              <th>Email</th>
               <th style={{ textAlign: "center" }}>Acciones</th>
             </tr>
           </thead>
           <tbody>
             {filteredUsers.map((u) => (
               <tr key={u.id} style={{ backgroundColor: "#cceffc" }}>
-                <td style={{ textAlign: "left" }}>{u.id}</td>
-                <td style={{ textAlign: "left" }}>{u.name}</td>
-                <td style={{ textAlign: "left" }}>{u.email}</td>
-                <td style={{ textAlign: "center" }}>
-                  <button
-                    className="btn me-2"
-                    style={{ backgroundColor: "#99dff9", color: "#004466", border: "1px solid #66cef6" }}
-                    onClick={() => openModal("edit", u)}
-                  >
-                    Editar
-                  </button>
-                  <button
-                    className="btn me-2"
-                    style={{ backgroundColor: "#00aeef", color: "#004466", border: "1px solid #33bef2" }}
-                    onClick={() => openModal("delete", u)}
-                  >
-                    Eliminar
-                  </button>
-                  <button
-                    className="btn"
-                    style={{ backgroundColor: "#66cef6", color: "#004466", border: "1px solid #33bef2" }}
-                    onClick={() => openModal("orders", u)}
-                  >
-                    Ver Órdenes
-                  </button>
+                <td>{u.id}</td>
+                <td>{u.name}</td>
+                <td>{u.email}</td>
+                <td style={{ textAlign: "center", whiteSpace: "nowrap" }}>
+                  <div className="d-none d-sm-flex justify-content-center gap-1 flex-wrap">
+                    <button
+                      className="btn btn-sm d-flex align-items-center"
+                      style={{ backgroundColor: "#99dff9", color: "#004466", border: "1px solid #66cef6" }}
+                      onClick={() => openModal("edit", u)}
+                    >
+                      <i className="fa fa-pencil me-1" style={{ color: "#004466" }}></i> Editar
+                    </button>
+                    <button
+                      className="btn btn-sm d-flex align-items-center"
+                      style={{ backgroundColor: "#00aeef", color: "#004466", border: "1px solid #33bef2" }}
+                      onClick={() => openModal("delete", u)}
+                    >
+                      <i className="fa fa-times me-1" style={{ color: "#004466" }}></i> Eliminar
+                    </button>
+                    <button
+                      className="btn btn-sm d-flex align-items-center"
+                      style={{ backgroundColor: "#66cef6", color: "#004466", border: "1px solid #33bef2" }}
+                      onClick={() => openModal("orders", u)}
+                    >
+                      <i className="fa fa-list me-1" style={{ color: "#004466" }}></i> Órdenes
+                    </button>
+                  </div>
+
+                  <div className="d-flex d-sm-none justify-content-center gap-2 flex-wrap">
+                    <button
+                      className="btn btn-light d-flex align-items-center p-1"
+                      onClick={() => openModal("edit", u)}
+                    >
+                      <i className="fa fa-pencil me-1" style={{ color: "#004466" }}></i>
+                      <small>Editar</small>
+                    </button>
+                    <button
+                      className="btn btn-light d-flex align-items-center p-1"
+                      onClick={() => openModal("delete", u)}
+                    >
+                      <i className="fa fa-times me-1" style={{ color: "#004466" }}></i>
+                      <small>Eliminar</small>
+                    </button>
+                    <button
+                      className="btn btn-light d-flex align-items-center p-1"
+                      onClick={() => openModal("orders", u)}
+                    >
+                      <i className="fa fa-list me-1" style={{ color: "#004466" }}></i>
+                      <small>Órdenes</small>
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       )}
+
+      <div
+        className="d-flex d-sm-none justify-content-start align-items-center bg-white border-top shadow-lg position-fixed bottom-0 start-0 end-0 px-3 py-2"
+        style={{
+          zIndex: 1050,
+          height: "64px",
+        }}
+      >
+        <button
+          className="btn btn-light d-flex flex-column align-items-center"
+          onClick={() => openModal("create")}
+        >
+          <i className="fa fa-plus fs-5 text-info"></i>
+          <small>Crear Usuario</small>
+        </button>
+      </div>
+
 
       <UserModal
         type={modalType}
