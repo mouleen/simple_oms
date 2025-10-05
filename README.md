@@ -108,5 +108,6 @@ cd frontend && npm run start
 cd api && pipenv run start
 ```
 ```
-
+En ocasiones podria dar problemas los dominios permitidos que tiene configurado el vite.config
+En caso que fuera necesario configurar los dominios de front y API en la clave AllowedHosts
 
