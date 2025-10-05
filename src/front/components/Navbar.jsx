@@ -46,7 +46,7 @@ export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg" style={{ backgroundColor: '#00aeef', borderBottom: '2px solid #33bef2' }}>
       <div className="container">
-        <Link to="/hero" className="navbar-brand d-flex align-items-center">
+        <Link to="/" className="navbar-brand d-flex align-items-center">
           <i className="fa-solid fa-basket-shopping me-2" style={{ fontSize: '1.4rem', color: '#004466' }}></i>
           <span className="fw-bold" style={{ color: '#004466', fontSize: '1.3rem' }}>Order Management</span>
         </Link>
@@ -68,6 +68,7 @@ export const Navbar = () => {
                 style={{ color: '#004466', fontWeight: '500', transition: 'all 0.2s ease' }}
                 onMouseEnter={e => { e.target.style.backgroundColor = '#33bef2'; e.target.style.color = '#004466'; }}
                 onMouseLeave={e => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = '#004466'; }}
+                onClick={() => setIsMenuOpen(false)}
               >
                 <i className="fa-solid fa-basket-shopping"></i> Ordenes
               </Link>
@@ -79,12 +80,14 @@ export const Navbar = () => {
                 style={{ color: '#004466', fontWeight: '500', transition: 'all 0.2s ease' }}
                 onMouseEnter={e => { e.target.style.backgroundColor = '#33bef2'; e.target.style.color = '#004466'; }}
                 onMouseLeave={e => { e.target.style.backgroundColor = 'transparent'; e.target.style.color = '#004466'; }}
+                onClick={() => setIsMenuOpen(false)}
               >
                 <i className="fa-solid fa-users"></i> Users
               </Link>
             </li>
           </ul>
         </div>
+
       </div>
     </nav>
   );
