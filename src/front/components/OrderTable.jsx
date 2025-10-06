@@ -13,28 +13,51 @@ const OrderTable = ({ orders, users, searchTerm, getUserName, onEdit, onDelete }
   }, [orders, searchTerm, users]);
 
   return (
-    <table className="table align-middle">
-      <thead style={{ backgroundColor: "#00aeef", color: "#004466" }}>
-        <tr>
-          <th style={{ textAlign: "left" }}>ID</th>
-          <th style={{ textAlign: "left" }}>Usuario</th>
-          <th style={{ textAlign: "left" }}>Producto</th>
-          <th style={{ textAlign: "right" }}>Monto</th>
-          <th style={{ textAlign: "center" }}>Acciones</th>
-        </tr>
-      </thead>
-      <tbody>
-        {filteredOrders.map(order => (
-          <OrderRow
-            key={order.id}
-            order={order}
-            getUserName={getUserName}
-            onEdit={onEdit}
-            onDelete={onDelete}
-          />
-        ))}
-      </tbody>
-    </table>
+    <div
+      className="table-responsive"
+      style={{
+        width: "100%",
+        maxWidth: "100vw",
+        overflowX: "auto",
+        overflowY: "hidden",
+        fontSize: "0.875rem",
+      }}
+    >
+      <table
+        className="table align-middle mb-0"
+        style={{
+          width: "100%",
+        }}
+      >
+        <colgroup>
+          <col style={{ width: "5%" }} />
+          <col style={{ width: "20%" }} />
+          <col style={{ width: "40%" }} />
+          <col style={{ width: "15%" }} />
+          <col style={{ width: "20%" }} />
+        </colgroup>
+        <thead style={{ backgroundColor: "#00aeef", color: "#004466" }}>
+          <tr>
+            <th style={{ textAlign: "left", whiteSpace: "nowrap" }}>ID</th>
+            <th style={{ textAlign: "left", whiteSpace: "nowrap" }}>Usuario</th>
+            <th style={{ textAlign: "left" }}>Producto</th>
+            <th style={{ textAlign: "right", whiteSpace: "nowrap" }}>Monto</th>
+            <th style={{ textAlign: "center", whiteSpace: "nowrap" }}>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredOrders.map(order => (
+            <OrderRow
+              key={order.id}
+              order={order}
+              getUserName={getUserName}
+              onEdit={onEdit}
+              onDelete={onDelete}
+            />
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 };
 
