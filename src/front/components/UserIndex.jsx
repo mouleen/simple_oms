@@ -47,6 +47,14 @@ const UserIndex = () => {
     <div className="container py-4">
       <div className="d-flex flex-column flex-sm-row justify-content-between align-items-sm-center mb-3">
         <h2 className="text-dark fw-bold mb-3 mb-sm-0">Listado de Usuarios</h2>
+        <div className="d-none d-sm-flex gap-2">
+          <button
+            className="btn btn-info text-dark"
+            onClick={() => openModal("create")}
+          >
+            <i className="fa fa-plus me-2"></i> Crear Usuario
+          </button>
+        </div>
       </div>
 
       <input
@@ -160,14 +168,8 @@ const UserIndex = () => {
         </div>
       )}
 
-      <div
-        className="d-flex d-sm-none justify-content-start align-items-center bg-white border-top shadow-lg position-fixed bottom-0 start-0 end-0 px-3 py-2"
-        style={{ zIndex: 1050, height: "64px" }}
-      >
-        <button
-          className="btn btn-light d-flex flex-column align-items-center"
-          onClick={() => openModal("create")}
-        >
+      <div className="d-flex d-sm-none justify-content-start align-items-center bg-white border-top shadow-lg position-fixed bottom-0 start-0 end-0 px-3 py-2" style={{ zIndex: 1050, height: "64px" }}>
+        <button className="btn btn-light d-flex flex-column align-items-center" onClick={() => openModal("create")}>
           <i className="fa fa-plus fs-5 text-info"></i>
           <small>Crear Usuario</small>
         </button>

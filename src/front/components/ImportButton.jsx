@@ -46,6 +46,7 @@ const ImportButton = ({ setOrders, users, loadOrders }) => {
         {loading ? "Importando..." : "Importar JSON"}
         <input
           type="file"
+          id="import-input"
           accept=".json"
           onChange={handleFileChange}
           style={{ display: "none" }}
