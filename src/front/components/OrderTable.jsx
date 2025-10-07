@@ -41,7 +41,7 @@ const OrderTable = ({ orders, users, searchTerm, getUserName, onEdit, onDelete }
             <th style={{ textAlign: "left", whiteSpace: "nowrap" }}>ID</th>
             <th style={{ textAlign: "left", whiteSpace: "nowrap" }}>Usuario</th>
             <th style={{ textAlign: "left" }}>Producto</th>
-            <th style={{ textAlign: "right", whiteSpace: "nowrap" }}>Monto</th>
+            <th style={{ textAlign: "right", whiteSpace: "nowrap" }}>Cantidad</th>
             <th style={{ textAlign: "center", whiteSpace: "nowrap" }}>Acciones</th>
           </tr>
         </thead>
