@@ -111,6 +111,10 @@ En ocasiones podria dar problemas los dominios permitidos que tiene configurado 
 En caso que fuera necesario configurar los dominios de front y API en la clave AllowedHosts
 
 ```
+
+### 🔹 Primer Uso
+Es necesario crear al menos un usuario para poder comenzar a probar la herramienta
+
 ---
 
 🧩 Funcionalidades 🧩
