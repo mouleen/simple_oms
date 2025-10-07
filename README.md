@@ -55,22 +55,23 @@ source .venv/bin/activate
 
 ---
 
-### 🔹 Instalar dependencias
-Si tenés un archivo `requirements.txt`, instalá todas las librerías necesarias con:
+### 🔹 Instalar dependencias e iniciar en Codespace
 ```bash
+#API
+pipenv run start
+
+#Frontend
+npm install
+npm run start
+
+### 🔹 Comandos disponibles para otros entornos
+
 #API
 pip install -r requirements.txt
 pipenv install
 pipenv run init
 pipenv run migrate
 pipenv run upgrade
-
-
-#Frontend
-npm install
-npm run start
-
-
 
 ```
 
@@ -83,18 +84,9 @@ source .venv/bin/activate
 ```
 
 ---
-
-### 🔹 Guardar dependencias
-Cuando instales nuevas librerías dentro del entorno, guardalas en `requirements.txt`:
-```bash
-pip freeze > requirements.txt
-```
-
----
-
 <h1 align="center">Preparar el entorno</h1>
 
-# 🐍 Proyecto Python con Flask SQLAlchemy PostgreSQL y eact
+# 🐍 Proyecto Python con Flask SQLAlchemy PostgreSQL y React
 
 Para inciar el proyecto para pruebas
 
@@ -102,10 +94,17 @@ Para inciar el proyecto para pruebas
 # Copiar muestra y configurar variable del entorno en fichero .env
 cp .env.example .env
 
+# Se deberan configurar las variables
+- URL del Backend (sin / al final)
+VITE_BACKEND_URL="https://<DOMINIO>" 
+- URL del Frontend (sin / al final)
+FRONTEND_URL="https://<DOMINIO>"
+
+
 #Frontend
-cd frontend && npm run start 
+npm run start 
 #API
-cd api && pipenv run start
+pipenv run start
 ```
 ```
 En ocasiones podria dar problemas los dominios permitidos que tiene configurado el vite.config
