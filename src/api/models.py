@@ -2,7 +2,6 @@ from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import String, ForeignKey,  Date, Table, DateTime, func, select,  Column, String, DateTime, ForeignKey, func
 from sqlalchemy.orm import relationship
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-from werkzeug.security import generate_password_hash, check_password_hash
 from typing import List, Optional
 from datetime import datetime
 

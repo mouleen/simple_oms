@@ -4,7 +4,6 @@ This module takes care of starting the API Server, Loading the DB and Adding the
 from flask import Flask, request, jsonify, Blueprint
 from flask_cors import CORS
 from api.models import db, User, Order
-from api.constants import ROLE_ADMIN, ROLE_STORE, ROLE_USER
 from datetime import timedelta
 
 import re
